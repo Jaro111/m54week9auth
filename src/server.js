@@ -25,8 +25,6 @@ const firstFunc = async (req, res, next) => {
 
 const secondFunc = async (req, res, next) => {
   req.body.second = "two";
-
-  next();
 };
 
 app.post("/middlewareexample", firstFunc, secondFunc, sendRes);

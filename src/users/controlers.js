@@ -27,8 +27,16 @@ const getUsers = async (req, res) => {
 };
 
 //
+const login = async (req, res) => {
+  try {
+    res.send("Success correct password!!!");
+  } catch (error) {
+    res.status(500).json({ message: error.message, error: error });
+  }
+};
 
 module.exports = {
   signupuUser: signupuUser,
   getUsers: getUsers,
+  login: login,
 };
