@@ -12,6 +12,27 @@ app.use(express.json());
 
 app.use(userRouter);
 
+// =============== Middleware example ====================
+const sendRes = async (req, res) => {
+  res.send({ data: req.body });
+};
+
+const firstFunc = async (req, res, next) => {
+  req.body.first = "one";
+
+  next();
+};
+
+const secondFunc = async (req, res, next) => {
+  req.body.second = "two";
+
+  next();
+};
+
+app.post("/middlewareexample", firstFunc, secondFunc, sendRes);
+
+// =====================================================
+
 const SyncTables = () => {
   User.sync();
 };
