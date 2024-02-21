@@ -38,6 +38,7 @@ const comparePass = async (req, res, next) => {
       res.status(401).json({ message: "Wrong password" });
       return;
     }
+    req.user = user.dataValues;
     next();
   } catch (error) {
     res.status(501).json({ message: error.message, error: error });
