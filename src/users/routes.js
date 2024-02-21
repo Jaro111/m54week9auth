@@ -2,7 +2,7 @@ const { Router } = require("express");
 
 const userRouter = Router();
 
-const { hashPass, comparePass } = require("../middleware/auth");
+const { hashPass, comparePass, tokenCheck } = require("../middleware/auth");
 
 const { signupuUser, getUsers, login } = require("./controlers");
 
@@ -17,5 +17,8 @@ userRouter.post("/users/signup", signupuUser);
 
 // getUsers
 userRouter.get("/users/getUsers", getUsers);
+
+// token check
+userRouter.get("/users/authCheck", tokenCheck, login);
 
 module.exports = userRouter;

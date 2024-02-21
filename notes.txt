@@ -1,0 +1,29 @@
+Compare pass 
+
+
+
+
+
+const login = async (req, res) => {
+  try {
+    // What i want to achieve?
+    // User to login
+    // What do i need to happend for the user be able to login
+    // Enter username and password
+    // Send username and password
+    // Compare passwordd with hasjhes on db
+
+    // Send back user data to frontEnd
+    // What kind of data am I sending back
+    // user id, username, not password, not email
+    // From db user table
+    // Do we hav the data. If so, where?
+    // Yes. We get it in comparePass to compare user password
+    // Yes
+    // How do we send it back
+    // In a response in login function
+    // Do we have access to user data
+    // No. Do the user exist in comparePass
+    // Can we get it from compare pass. If so, how?
+    // Yes.
+    // next()
