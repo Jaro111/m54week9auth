@@ -19,8 +19,7 @@ const signupuUser = async (req, res) => {
 const getUsers = async (req, res) => {
   try {
     const users = await User.findAll();
-    // res.status(201).json({ message: `Users uploaded`, users: users });
-    req.user = users;
+    res.status(201).json({ message: `Users uploaded`, users: users });
     //
   } catch (error) {
     res.status(501).json({ message: error.message, error: error });
@@ -52,17 +51,17 @@ const login = async (req, res) => {
     // Yes.
     // next()
 
-    const user = await User.findOne({ where: { username: req.body.username } });
-    const matched = await bcrypt.compare(
-      req.body.password,
-      user.dataValues.password
-    );
-    if (!matched) {
-      res.status(401).json({ message: "nooo" });
-    }
+    // const user = await User.findOne({ where: { username: req.body.username } });
+    // const matched = await bcrypt.compare(
+    //   req.body.password,
+    //   user.dataValues.password
+    // );
+    // if (!matched) {
+    //   res.status(401).json({ message: "nooo" });
+    // }
 
-    console.log(req.user);
-    res.send({ message: "Successful login", user: req.user });
+    // console.log(req.user);
+    res.status(201).json({ message: "Successful login", user: req.user });
   } catch (error) {
     res.status(500).json({ message: error.message, error: error });
   }

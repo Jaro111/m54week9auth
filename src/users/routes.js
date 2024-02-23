@@ -10,7 +10,7 @@ const { signupuUser, getUsers, login } = require("./controlers");
 userRouter.post("/users/signup", hashPass, signupuUser);
 
 // comparePass
-userRouter.post("/users./login", comparePass, login);
+userRouter.post("/users/login", comparePass, login);
 
 // addUsers
 userRouter.post("/users/signup", signupuUser);

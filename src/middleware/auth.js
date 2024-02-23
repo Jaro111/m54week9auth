@@ -24,7 +24,7 @@ const comparePass = async (req, res, next) => {
   try {
     const user = await User.findOne({
       where: {
-        username: req.body.userName,
+        username: req.body.username,
       },
     });
 
@@ -32,13 +32,12 @@ const comparePass = async (req, res, next) => {
     console.log(myPassword);
 
     const checkPassword = await bcrypt.compare(req.body.password, myPassword);
-    console.log(checkPassword);
 
     if (!checkPassword) {
       res.status(401).json({ message: "Wrong password" });
       return;
     }
-    req.user = user.dataValues;
+    req.user = user;
     next();
   } catch (error) {
     res.status(501).json({ message: error.message, error: error });
