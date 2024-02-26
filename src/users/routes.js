@@ -16,7 +16,7 @@ userRouter.post("/users./login", comparePass, login);
 userRouter.post("/users/signup", signupuUser);
 
 // getUsers
-userRouter.get("/users/getUsers", getUsers);
+userRouter.get("/users/getUsers", tokenCheck, getUsers);
 
 // token check
 userRouter.get("/users/authCheck", tokenCheck, login);

@@ -19,8 +19,12 @@ const signupuUser = async (req, res) => {
 // getUsers
 const getUsers = async (req, res) => {
   try {
+    if (!req.authCheck) {
+      res.status(401).json({ message: "Sorry You are not authorized" });
+      return;
+    }
     const users = await User.findAll();
-    // res.status(201).json({ message: `Users uploaded`, users: users });
+    res.status(200).json({ message: `Users uploaded`, users: users });
     req.user = users;
     //
   } catch (error) {
@@ -33,7 +37,7 @@ const login = async (req, res) => {
   try {
     if (req.authCheck) {
       const user = {
-        id: req.user.id,
+        id: req.authCheck.id,
         username: req.authCheck.username,
       };
       res
@@ -46,7 +50,7 @@ const login = async (req, res) => {
 
     const user = {
       id: req.user.id,
-      username: req.username,
+      username: req.user.username,
       token: token,
     };
 
