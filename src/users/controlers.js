@@ -54,16 +54,6 @@ const login = async (req, res) => {
       token: token,
     };
 
-    // const user = await User.findOne({ where: { username: req.body.username } });
-    // const matched = await bcrypt.compare(
-    //   req.body.password,
-    //   user.dataValues.password
-    // );
-    // if (!matched) {
-    //   res.status(401).json({ message: "nooo" });
-    // }
-
-    // console.log(req.user);
     res.send({ message: "Successful login", user: user });
     // req.user
   } catch (error) {

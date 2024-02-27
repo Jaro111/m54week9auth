@@ -24,7 +24,7 @@ const comparePass = async (req, res, next) => {
   try {
     const user = await User.findOne({
       where: {
-        username: req.body.userName,
+        username: req.body.username,
       },
     });
 
